@@ -1,0 +1,134 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@import '_mixins';
+@import '_variables';
+
+
+
+section {
+  text-align: center;
+  color: blue;
+  font-family: 'Lato', sans-serif; 
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+     color: blue;
+     font-family: 'Nunito', sans-serif; 
+  }
+
+ 
+  .annonce {
+    flex-basis: calc(50% - 20px);
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 0;
+    background-color: #fff;
+    position: relative;
+    
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-top: 15px solid #007bff;
+      border-right: 15px solid transparent;
+      border-bottom: none;
+      border-left: none;
+    }
+
+    img {
+      max-width: 250px;
+      height: auto;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      margin-right: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .annonce-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+
+      h4 {
+        font-size: 35px;
+        margin-bottom: 10px;
+        color: blue;
+        font-family: 'Nunito', sans-serif; 
+      }
+
+      p {
+        font-size: 25px;
+        color: #666;
+        margin-bottom: 10px;
+      }
+
+      .prix {
+        font-size: 18px;
+        color: #007bff;
+        font-weight: bold;
+      }
+    }
+
+    .btn {
+      
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-top: 10px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+}
+
+
+.annonce {
+  &:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+}
+
+
+.loading {
+  font-size: 20px;
+  color: #007bff;
+  margin-top: 20px;
+}
+
+
+.image-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 24px;
+  background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}

@@ -1,0 +1,63 @@
+@import '_mixins';
+
+
+footer {
+  background: #152637;
+  color: #f6f7ee;
+  padding: 20px 0;
+  text-align: center;
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-content {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 10px;
+
+    .footer-logo {
+      height: 7vh;
+      background-image: url(../img/flag_lao.png);
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 20px; 
+    }
+
+    .footer-links,
+    .footer-social {
+      display: flex;
+      flex-direction: column; 
+      gap: 10px; 
+    }
+  }
+
+  .footer-links,
+  .footer-social {
+    a {
+      color: #f6f7ee;
+      text-decoration: none;
+      font-size: 20px;
+    }
+  }
+
+  @include respond-to-medium {
+    .footer-content {
+      flex-direction: row;
+      justify-content: space-between; 
+      align-items: flex-start; 
+      .footer-links,
+    .footer-social {
+      display: flex;
+      flex-direction: row; 
+      gap: 10px; 
+  
+    }
+  }
+}
+}

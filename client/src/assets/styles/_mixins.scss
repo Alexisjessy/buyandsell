@@ -1,0 +1,56 @@
+@mixin flex($direction: "row", $wrap: "wrap") {
+  display: flex;
+  flex-wrap: #{$wrap};
+  flex-direction: #{$direction};
+}
+
+@mixin button($height: 16px) {
+  &:hover {
+    background: var(--dark-purple);
+  }
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: #{$height} 72px;
+  letter-spacing: 1px;
+  align-self: flex-start;
+ 
+  text-transform: uppercase;
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+
+// media queries
+
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+$breakpoint-xlarge: 1200px;
+
+@mixin respond-to-small {
+  @media (min-width: $breakpoint-small) {
+    @content;
+  }
+}
+
+@mixin respond-to-medium {
+  @media (min-width: $breakpoint-medium) {
+    @content;
+  }
+}
+
+@mixin respond-to-large {
+  @media (min-width: $breakpoint-large) {
+    @content;
+  }
+}
+
+@mixin respond-to-xlarge {
+  @media (min-width: $breakpoint-xlarge) {
+    @content;
+  }
+}
+

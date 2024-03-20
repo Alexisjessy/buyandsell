@@ -1,0 +1,91 @@
+
+@import 'mixins';
+
+.user-profile-page {
+  padding: 20px;
+ 
+
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .profile-photo {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+
+  .stars {
+    display: flex;
+    margin-bottom: 20px;
+
+    .star-icon {
+      margin-right: 5px;
+    }
+  }
+
+  .comments-container {
+    overflow-y: auto; 
+    max-height: 200px; 
+    border: 2px solid blue;
+    border-radius: 25px;
+    
+    .comment {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      
+
+      .username {
+        color: blue; 
+        margin-right: 5px;
+      }
+
+      .star-icon {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .stars {
+    display: flex;
+    margin-bottom: 10px;
+
+    .star-icon {
+      margin-right: 5px;
+    }
+  }
+
+  button {
+    @include button(16px);
+  }
+
+  .alert {
+    background: #f00;
+    color: #fff;
+    padding: 10px;
+    margin-top: 10px;
+  }
+
+  // Media Queries
+  @include respond-to-small {
+    
+    display:column;
+    
+  }
+
+}

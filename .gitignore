@@ -1,0 +1,9 @@
+serveur/controllers/gmail.js
+serveur/controllers/token.js
+client/src/deepl/deepl.js
+serveur/package-lock.json
+serveur/package.json
+serveur/node_modules/@mapbox/node-pre-gyp/package.json
+serveur/node_modules/@mapbox/node-pre-gyp/lib/util/nw-pre-gyp/package.json
+serveur/node_modules/.package-lock.json
+serveur/.gitignore

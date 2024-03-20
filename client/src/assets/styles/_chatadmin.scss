@@ -1,0 +1,296 @@
+@import '_mixins';
+  $primaryColor: #2196f3;
+  $secondaryColor: #0d47a1;
+  $neutralLight: #f9f9f9;
+   $neutralDark: #e1e1e1;
+  $errorColor: #ff0000;
+  $successColor: #21ff00;
+
+.chat-container {
+  display: flex;
+  flex-direction: column-reverse;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  overflow-x: hidden;
+
+  @include respond-to-medium {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .conversations {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      max-width: 400px; 
+
+      li {
+        background-color: $neutralLight;
+        border: 1px solid #ddd;
+        margin-bottom: 1px;
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background-color: $neutralDark;
+        }
+
+        div {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+
+          h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+          }
+
+          p {
+            font-size: 14px;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .chat {
+    width: 100%;
+    max-width: 800px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin: auto;
+
+    .conversation-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+     
+
+      li {
+        margin-bottom: 20px;
+        border: 2px solid #ccc;
+        padding: 15px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width: 100%;
+
+        &:hover {
+          background-color: $neutralDark;
+        }
+
+        p {
+          margin: 0;
+          font-size: 16px;
+
+          strong {
+            font-weight: bold;
+            color: #333;
+          }
+        }
+
+        .message-text {
+          margin-top: 12px;
+          font-size: 14px;
+          color: #666;
+        }
+
+        .message-time {
+          display: block;
+          font-size: 12px;
+          color: #888;
+          margin-top: 8px;
+        }
+      }
+    }
+
+    .conversation-card {
+      border: 2px solid #ccc;
+      width: 75%;
+      padding: 15px;
+      margin-bottom: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+       
+      &:hover {
+        background-color: $neutralDark;
+      }
+
+      &.sent {
+        background-color: $successColor;
+        padding: 0;
+        color: #fff;
+        align-self: flex-end;
+        border-top-left-radius: 10px;
+      }
+
+      &.received {
+        border-top-right-radius: 10px;
+        padding: 0;
+        align-self: flex-start;
+      }
+
+      p {
+        margin: 0;
+        font-size: 20px;
+
+        strong {
+          font-weight: bold;
+          color: #333;
+        }
+      }
+
+      .message-text {
+        margin-top: 12px;
+        font-size: 20px;
+        color: #1c2225;
+      }
+
+      .message-time {
+        display: block;
+        font-size: 12px;
+        color: #888;
+        margin-top: 8px;
+      }
+
+      .reply-button {
+        background-color: $errorColor;
+        color: #fff;
+
+        &.send {
+          background-color: $errorColor;
+        }
+
+        &.selected {
+          background-color: $successColor;
+          color: #fff;
+        }
+      }
+
+      .conversation-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        button {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        button.joined {
+          background-color: $successColor;
+          color: white;
+        }
+
+        @include respond-to-medium {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+
+      .message-input {
+        margin-top: 20px;
+        height: 100%;
+
+        input {
+          width: 100%;
+          padding: 12px;
+          border: 2px solid #ccc;
+          border-radius: 5px;
+          font-size: 16px;
+          margin-bottom: 10px;
+        }
+
+        button {
+          width: 100%;
+          padding: 12px 20px;
+          margin: 0;
+        }
+      }
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: $primaryColor;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: $secondaryColor;
+      }
+    }
+  }
+
+
+@include respond-to-small {
+  .chat-container {
+    flex-direction: column;
+
+    .chat {
+      flex: 1; 
+
+      .conversation-list {
+        height: 100vh;
+        overflow-y: auto; 
+      }
+
+      .conversation-card {
+        width: 100%;
+      }
+
+      .message-input {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 20px;
+        border-top: 1px solid #ccc;
+        box-shadow: 0px -5px 5px -5px rgba(0, 0, 0, 0.1);
+
+        input {
+          width: calc(100% - 24px);
+          padding: 12px;
+          border: 2px solid #ccc;
+          border-radius: 5px;
+          font-size: 16px;
+          margin-bottom: 10px;
+          display: inline-block;
+        }
+
+        button {
+          width: calc(100% - 24px);
+          padding: 12px 20px;
+          margin: 0;
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+}
+@media screen and (max-width: 767px) and (orientation: landscape) {
+  .chat-container {
+    flex-direction: column;
+  }
+}
